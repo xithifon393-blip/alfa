@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบจดการบ้าน</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- แถบเมนูข้าง -->
+        <nav class="sidebar">
+            <div class="brand">คลังงาน.</div>
+            <div class="nav-menu">
+                <button onclick="showPage('list')" class="nav-btn active" id="m-list">📋 รายการงาน</button>
+                <button onclick="showPage('form')" class="nav-btn" id="m-form">✨ เพิ่มงานใหม่</button>
+            </div>
+        </nav>
+
+        <!-- พื้นที่แสดงเนื้อหา -->
+        <main class="content">
+            <!-- หน้า: รายการการบ้าน -->
+            <section id="page-list" class="page active">
+                <div class="page-header">
+                    <h2>งานที่ต้องทำ</h2>
+                    <p id="total-count">ไม่มีงานค้างในขณะนี้</p>
+                </div>
+                <div id="task-grid" class="grid"></div>
+            </section>
+
+            <!-- หน้า: เพิ่มงาน -->
+            <section id="page-form" class="page">
+                <div class="card-form">
+                    <h2>บันทึกคำสั่งงาน</h2>
+                    <div class="input-stack">
+                        <label>เลือกกลุ่มวิชา</label>
+                        <select id="subject">
+                            <option value="คณิตพื้นฐาน">คณิตพื้นฐาน</option>
+                            <option value="คณิตเพิ่มเติม">คณิตเพิ่มเติม</option>
+                            <option value="ฟิสิกส์">ฟิสิกส์</option>
+                            <option value="เคมี">เคมี</option>
+                            <option value="ชีวะ">ชีวะ</option>
+                            <option value="ดาราศาสตร์">ดาราศาสตร์</option>
+                            <option value="อังกฤษทั่วไป">อังกฤษทั่วไป</option>
+                            <option value="อังกฤษวัฒนธรรม">อังกฤษวัฒนธรรม</option>
+                            <option value="อังกฤษสื่อสาร">อังกฤษสื่อสาร</option>
+                            <option value="ภาษา��ทย">ภาษาไทย</option>
+                            <option value="สังคม/ประวัติ">สังคม / ประวัติ</option>
+                            <option value="ดนตรี/พละ">ดนตรี / พละ</option>
+                            <option value="หุ่นยนต์/คอม">หุ่นยนต์ / คอม</option>
+                            <option value="การงาน">การงาน</option>
+                        </select>
+
+                        <label>รายละเอียดงาน</label>
+                        <input type="text" id="detail" placeholder="เช่น ทำแบบฝึกหัดหน้า 10...">
+
+                        <div class="date-row">
+                            <div>
+                                <label>วันที่สั่ง</label>
+                                <input type="date" id="start-date">
+                            </div>
+                            <div>
+                                <label>กำหนดส่ง</label>
+                                <input type="date" id="end-date">
+                            </div>
+                        </div>
+
+                        <button onclick="handleSave()" class="btn-submit">บันทึกข้อมูลเข้าสู่ระบบ</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
